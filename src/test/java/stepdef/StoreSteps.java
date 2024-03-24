@@ -57,7 +57,9 @@ public class StoreSteps {
         List<List<String>> rows = data.asLists(String.class);
         iPrepareTheRequestBody(rows);
         iPassTheRequestBodyOfPostApiToPlaceAnOrder();
-    };
+    }
+
+    ;
 
     @Given("I hit the url of get api for Returning Pet Invetories By Status")
     public void i_hit_the_url_of_get_api_for_Returning_Pet_Invetories_By_Status() {

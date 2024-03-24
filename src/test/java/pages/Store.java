@@ -11,6 +11,7 @@ import java.util.List;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
+import static utility.Configuration.*;
 
 public class Store {
     public static RequestSpecification httpRequest;
@@ -19,21 +20,21 @@ public class Store {
     public static JSONObject requestParams;
 
     public static void iHitTheBaseUrl() {
-        RestAssured.baseURI = "https://petstore.swagger.io/";
+        RestAssured.baseURI = BaseUrl;
     }
 
     public static void ipasstheurlofgetapiforpurchaseorderwiththeID(String id) {
         httpRequest = given();
-        response = httpRequest.get("v2/store/order/" + id);
+        response = httpRequest.get(GetDeletePostUrl + id);
     }
 
     public static void iPassTheUrlOfDeleteApiForPurchasedOrderWithTheID(String id) {
         httpRequest = given();
-        response = httpRequest.delete("v2/store/order/" + id);
+        response = httpRequest.delete(GetDeletePostUrl + id);
     }
 
     public static void iHitTheBaseUrlWithContentType() {
-        RestAssured.baseURI = "https://petstore.swagger.io/";
+        RestAssured.baseURI = BaseUrl;
         httpRequest = given().contentType("application/json");
         requestParams = new JSONObject();
     }
@@ -61,12 +62,12 @@ public class Store {
     }
 
     public static void iPassTheRequestBodyOfPostApiToPlaceAnOrder() {
-        response = httpRequest.post("v2/store/order");
+        response = httpRequest.post(GetDeletePostUrl);
     }
 
     public static void iPassTheUrlOfGetApiForReturningPetInvetoriesByStatus() {
         httpRequest = given();
-        response = httpRequest.get("v2/store/inventory");
+        response = httpRequest.get(GetInventoryUrl);
     }
 }
 

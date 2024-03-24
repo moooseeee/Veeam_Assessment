@@ -23,7 +23,7 @@ Feature: Get Purchase Order By ID
     Given I hit the url of get api for purchase order
     When I pass the url of get api for purchase order with the ID "96"
     Then I verify that the response body is equal to
-      | id       | 96      |
+      | id       | 96     |
       | status   | placed |
       | complete | true   |
 
